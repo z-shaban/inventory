@@ -7,7 +7,20 @@
 </head>
 <body>
     <div><%- include('partials/header') %></div>
-    <div><p>categories</p></div>
+    <div><p>OUR SETS</p></div>
+    <button onclick="window.location.href='/categories/createCategory'">ADD CATEGORY</button>
+    <div>
+        <ul>
+           <% categories.forEach(category=>{ %>
+             <li>
+                <div>
+                    <img src="<%= category.category_image %>" alt="<%= category.category_name%>">
+                    <p><%= category.category_name %></p>
+                </div>
+             </li>
+           <% }) %>
+        </ul>
+    </div>
     <div><%- include('partials/footer') %></div>
 </body>
 </html>
