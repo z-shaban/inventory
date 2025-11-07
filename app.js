@@ -3,6 +3,7 @@ const express = require ('express')
 const app = express()
 const PORT = process.env.PORT || 3000
 const path = require('path')
+const {body, validationResult} = require('express-validator')
 const indexRouter = require('./routes/indexRouter')
 const categoriesRouter = require('./routes/categoriesRouter')
 const productRouter = require('./routes/productRouter')
