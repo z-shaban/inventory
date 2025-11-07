@@ -17,6 +17,7 @@
                     <img src="<%= category.category_image %>" alt="<%= category.category_name%>">
                     <p><%= category.category_name %></p>
                     <button onclick="window.location.href = 'categories/<%= category.id %>/updateCategory' ">EDIT CATEGORY</button>
+                    <button onclick="window.location.href = 'categories/<%= category.id %>/deleteCategory' ">DELETE CATEGORY</button>
                 </div>
              </li>
            <% }) %>

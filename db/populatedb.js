@@ -2,6 +2,7 @@ require('dotenv').config();
 const {Client} = require('pg')
 
 const SQL = `
+  
   CREATE TABLE IF NOT EXISTS categories(
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   category_name TEXT,
@@ -13,7 +14,7 @@ const SQL = `
   product_name TEXT,
   product_price NUMERIC,
   category_id INTEGER,
-  FOREIGN KEY (category_id) REFERENCES categories(id) 
+  FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE
   );
 
   INSERT INTO categories (category_name, category_image)

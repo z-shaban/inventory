@@ -117,6 +117,11 @@ const postUpdateCategory = [
 }
 ]
 
+async function deleteCategory(req,res){
+    const id = req.params.id
+    await db.deleteCategory(id)
+     res.redirect('/categories')
+}
 
 
 module.exports = {
@@ -124,5 +129,6 @@ module.exports = {
     getCreateCategory,
    postCreateCategory,
    getUpdateCategory,
-   postUpdateCategory
+   postUpdateCategory,
+   deleteCategory
 }
