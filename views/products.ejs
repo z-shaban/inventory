@@ -9,6 +9,16 @@
      <div><%- include('partials/header') %></div>
      <div>
         <button onclick="window.location.href='/products/addProduct'">ADD PRODUCT</button>
+        <div>
+            <ul>
+                <% products.forEach (product =>{ %>
+                    <li>
+                        <p>Name: <%= product.product_name %></p>
+                        <p>Price: <%= product.product_price %></p>
+                    </li>
+               <% }) %>
+            </ul>
+        </div>
      </div>
     <div><%- include('partials/footer') %></div>
 </body>

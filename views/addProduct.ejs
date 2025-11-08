@@ -9,18 +9,18 @@
     <form action="/products/addProduct" method="post">
         <h1>ADD A PRODUCT</h1>
         <label for="category">CHOOSE A CATEGORY:</label>
-        <select name="category" id="category">
+        <select name="category_id" id="category_id" required>
             <option value="" selected disabled hidden>SELECT A CATEGORY</option>
             <% categories.forEach(category => { %>
-            <option value="category.id"><%= category.category_name %> </option>
+            <option value="<%= category.id %>"><%= category.category_name %> </option>
           <%  }) %>
         </select>
 
         <label for="product_name">Name: </label>
-        <input type="text" name="product_name" id="product_name">
+        <input type="text" name="product_name" id="product_name" required>
 
         <label for="product_price">PRICE</label>
-        <input type="number" name="product_price" id="product_price">
+        <input type="number" name="product_price" id="product_price" required>
 
         <button type="submit">ADD</button>
     </form>
