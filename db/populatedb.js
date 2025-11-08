@@ -14,7 +14,7 @@ const SQL = `
   product_name TEXT,
   product_price NUMERIC,
   category_id INTEGER,
-  FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE
+  FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE ON UPDATE CASCADE
   );
 
   INSERT INTO categories (category_name, category_image)
