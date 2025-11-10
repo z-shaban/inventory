@@ -16,8 +16,20 @@ async function postAddProduct(req,res){
    res.redirect('/products')
 }
 
+async function getUpdateProduct(req,res){
+   const categories = await db.getAllCategories();
+   const {id} = req.params
+   const product = await db.getProduct(id)
+   res.render('updateProduct', {categories, product})
+}
+
+async function postUpdateProduct(req,res) {
+    console.log(req)
+}
 module.exports = {
    getAllProducts,
     getAddProduct,
-    postAddProduct
+    postAddProduct,
+   getUpdateProduct,
+   postUpdateProduct
 }

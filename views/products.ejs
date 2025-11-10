@@ -15,6 +15,7 @@
                     <li>
                         <p>Name: <%= product.product_name %></p>
                         <p>Price: <%= product.product_price %></p>
+                        <button onclick="window.location.href='products/<%= product.id %>/updateProduct'">UPDATE PRODUCT</button>
                     </li>
                <% }) %>
             </ul>
