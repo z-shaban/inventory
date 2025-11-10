@@ -7,9 +7,9 @@
 </head>
 <body>
      <h1>UPDATE PRODUCT</h1>
-    <form action="products/<%= product.id %>/updateProduct" method="post">
+    <form action="/products/<%= product.id %>/updateProduct" method="post">
         <label for="category">CHOOSE A CATEGORY:</label>
-        <select name="category_id" id="category_id" required>
+        <select name="category_id" id="category_id" >
             <option value="" selected disabled hidden>SELECT A CATEGORY</option>
             <% categories.forEach(category => { %>
             <option value="<%= category.id %>"><%= category.category_name %> </option>
@@ -17,10 +17,10 @@
         </select>
 
         <label for="product_name">Name: </label>
-        <input type="text" name="product_name" id="product_name" required>
+        <input type="text" name="product_name" id="product_name" placeholder="ENTER NEW NAME">
 
         <label for="product_price">PRICE</label>
-        <input type="number" name="product_price" id="product_price" required>
+        <input type="number" name="product_price" id="product_price" placeholder="ENTER NEW PRICE">
 
         <button type="submit">ADD</button>
     </form>

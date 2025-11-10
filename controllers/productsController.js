@@ -24,7 +24,18 @@ async function getUpdateProduct(req,res){
 }
 
 async function postUpdateProduct(req,res) {
-    console.log(req)
+   const id = req.params.id
+   const product = await db.getProduct(id)
+   let {product_name, product_price, category_id} = req.body
+
+   if(!product_name || !product_price || !category_id){
+    product_name = product.product_name
+    product_price = product.product_price
+    category_id = product.category_id
+   }
+
+   await db.updateProduct(product_name, product_price, category_id, id)
+   res.redirect('/products')
 }
 module.exports = {
    getAllProducts,
