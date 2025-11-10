@@ -2,7 +2,10 @@ require('dotenv').config();
 const {Client} = require('pg')
 
 const SQL = `
-  
+  DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS categories;
+ 
+
   CREATE TABLE IF NOT EXISTS categories(
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   category_name TEXT,
@@ -20,7 +23,7 @@ const SQL = `
   INSERT INTO categories (category_name, category_image)
   VALUES 
   ('caramel_set', '/images/caramel_set.png'),
-  ('radiant_set', '/images/radiant_set.png')
+  ('radiant_set', '/images/radiant_set.png');
 `
 
 async function main(){
