@@ -96,24 +96,16 @@ const postUpdateProduct = [
     }
 ]
 
-/*async function postUpdateProduct(req,res) {
-   const id = req.params.id
-   const product = await db.getProduct(id)
-   let {product_name, product_price, category_id} = req.body
-
-   if(!product_name || !product_price || !category_id){
-    product_name = product.product_name
-    product_price = product.product_price
-    category_id = product.category_id
-   }
-
-   await db.updateProduct(product_name, product_price, category_id, id)
-   res.redirect('/products')
-}*/
+async function deleteProduct(req,res){
+ const id = req.params.id
+ await db.deleteProduct(id)
+ res.redirect('/products')
+}
 module.exports = {
    getAllProducts,
     getAddProduct,
     postAddProduct,
    getUpdateProduct,
-   postUpdateProduct
+   postUpdateProduct,
+   deleteProduct
 }

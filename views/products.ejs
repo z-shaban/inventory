@@ -16,6 +16,7 @@
                         <p>Name: <%= product.product_name %></p>
                         <p>Price: <%= product.product_price %></p>
                         <button onclick="window.location.href='/products/<%= product.id %>/updateProduct'">UPDATE PRODUCT</button>
+                        <button onclick="window.location.href='/products/<%= product.id %>/deleteProduct'">DELETE PRODUCT</button>
                     </li>
                <% }) %>
             </ul>

@@ -8,5 +8,6 @@ productRouter.get('/addProduct', productsController.getAddProduct)
 productRouter.post('/addProduct', productsController.postAddProduct)
 productRouter.get('/:id/updateProduct', productsController.getUpdateProduct)
 productRouter.post('/:id/updateProduct', productsController.postUpdateProduct)
+productRouter.get('/:id/deleteProduct', productsController.deleteProduct)
 
 module.exports = productRouter
