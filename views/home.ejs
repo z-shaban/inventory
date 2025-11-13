@@ -4,22 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/output.css">
 </head>
-<body>
-    <div><%- include('partials/header') %></div>
-   <div>
-    <p>Radiance That's Uniquely Yours</p>
-    <p>Science-backed skincare formulated to reveal your natural glow. Clean ingredients, visible results, beautifully simple routines.</p>
+<body  class="flex flex-col min-h-screen">
+ <div><%- include('partials/header') %></div>
+ 
+ <div id="main" class="flex flex-col flex-1 items-center justify-center overflow-y-auto bg-black">
+    <div class="flex flex-col items-center p-4 text-yellow-500">
+    <p>Welcome to the GLOW COSMETICS INVENTORY</p>
+    
    </div>
-   <div>
-    <p>Why Glow Cosmetics?</p>
-    <p>At Glow Cosmetics, we believe skincare should be effective, accessible, and kind to your skin. Our formulas combine proven active ingredients with nourishing botanicals to deliver real results without the complexity.</p>
-    <p>Every product is dermatologist-tested, cruelty-free, and designed for all skin types.</p>
-    <div id="buttons">
-        <button onclick="window.location.href='/categories'">VIEW CATEGORIES</button>
-        <button onclick="window.location.href='/products'">VIEW PRODUCTS</button>
+   <div >
+    <div id="buttons" >
+        <button class="border-2 border-yellow-500 bg-black text-white px-4 py-2 rounded transition-colors duration-300 hover:bg-yellow-500 hover:text-black" onclick="window.location.href='/categories'">VIEW CATEGORIES</button>
+        <button class="border-2 border-yellow-500 bg-black text-white px-4 py-2 rounded transition-colors duration-300 hover:bg-yellow-500 hover:text-black" onclick="window.location.href='/products'">VIEW PRODUCTS</button>
     </div>
-</div>
+  </div>
+ </div>
+   
 <div><%- include('partials/footer') %></div>
 </body>
 </html>
