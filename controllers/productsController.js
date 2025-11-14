@@ -38,7 +38,8 @@ const validateUpdateProduct = [
 
 async function getAllProducts(req,res) {
     const products = await db.getAllProducts()
-    res.render('products', {products})
+    const categories = await db.getAllCategories()
+    res.render('products', {products, categories})
 }
 
 async function getAddProduct(req,res){

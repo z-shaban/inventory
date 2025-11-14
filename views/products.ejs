@@ -4,23 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/output.css">
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
      <div><%- include('partials/header') %></div>
-     <div>
-        <button onclick="window.location.href='/products/addProduct'">ADD PRODUCT</button>
-        <div>
-            <ul>
-                <% products.forEach (product =>{ %>
-                    <li>
-                        <p>Name: <%= product.product_name %></p>
-                        <p>Price: <%= product.product_price %></p>
-                        <button onclick="window.location.href='/products/<%= product.id %>/updateProduct'">UPDATE PRODUCT</button>
-                        <button onclick="window.location.href='/products/<%= product.id %>/deleteProduct'">DELETE PRODUCT</button>
-                    </li>
-               <% }) %>
-            </ul>
+     <div id="main" class="flex flex-col flex-1  overflow-y-auto bg-black">
+        <div  class="flex m-4">
+            <p class="text-yellow-500 text-4xl font-extrabold pr-4">OUR PRODUCTS</p>
+            <button class="primary-btn" onclick="window.location.href='/products/addProduct'">ADD PRODUCT</button>
         </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-4 " >
+            
+                <% products.forEach (product =>{ %>
+                        <div class="border-4 border-yellow-500 p-4 rounded">
+                        <p class="text-yellow-500">Name: <%= product.product_name %></p>
+                        <p class="text-yellow-500">Price: <%= product.product_price %></p>
+   
+                        <% categories.forEach(category =>{ %>
+                        <% if(product.category_id === category.id){ %>
+                        <p class="text-yellow-500">Category: <%= category.category_name %></p>
+                       <% } %>
+                       <% }) %>
+
+                        <button class="primary-btn mr-2" onclick="window.location.href='/products/<%= product.id %>/updateProduct'">UPDATE</button>
+                        <button class="primary-btn" onclick="window.location.href='/products/<%= product.id %>/deleteProduct'">DELETE</button>
+                        </div>
+                        
+               <% }) %>
+            
+        </div>
+     
      </div>
     <div><%- include('partials/footer') %></div>
 </body>
