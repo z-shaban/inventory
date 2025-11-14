@@ -9,7 +9,7 @@ const lengthErr = 'category name should be between 5 and 20 characters'
 const validateCreateCategory = [
      body('category_name')
      .trim()
-     .isAlpha().withMessage(alphaErr)
+     .isAlpha('en-US', { ignore: ' ' }).withMessage(alphaErr)
      .isLength({ min: 5, max: 10 }).withMessage(lengthErr),
 
      body('category_image').custom((value, {req})=>{
@@ -31,8 +31,8 @@ const validateUpdateCategory = [
      body('category_name')
      .optional({ values: "falsy" })
      .trim()
-     .isAlpha().withMessage(alphaErr)
-     .isLength({ min: 5, max: 10 }).withMessage(lengthErr),
+     .isAlpha('en-US', { ignore: ' ' }).withMessage(alphaErr)
+     .isLength({ min: 5, max: 20 }).withMessage(lengthErr),
 
      body('category_image') 
     .custom((value, {req})=>{

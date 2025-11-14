@@ -12,7 +12,7 @@ const validateAddProduct = [
 
     body('product_name')
     .trim()
-    .isAlpha().withMessage(alphaErr)
+    .isAlpha('en-US', { ignore: ' ' }).withMessage(alphaErr)
     .isLength({min:5, max:20}).withMessage(lengthErr),
 
     body('product_price')
@@ -26,7 +26,7 @@ const validateUpdateProduct = [
     body('product_name')
     .optional({values: 'falsy'})
     .trim()
-    .isAlpha().withMessage(alphaErr)
+    .isAlpha('en-US', { ignore: ' ' }).withMessage(alphaErr)
     .isLength({min:5, max:20}).withMessage(lengthErr),
 
     body('product_price')
