@@ -2,7 +2,7 @@ const db = require('../db/queries')
 const {body, validationResult, matchedData} = require('express-validator')
 
 const alphaErr = 'product name should only contain letters'
-const lengthErr = 'product name should be between 5 and 20 characters'
+const lengthErr = 'product name should be between 5 and 50 characters'
 const priceErr = 'Price cant be less than 1'
 
 const validateAddProduct = [
@@ -13,7 +13,7 @@ const validateAddProduct = [
     body('product_name')
     .trim()
     .isAlpha('en-US', { ignore: ' ' }).withMessage(alphaErr)
-    .isLength({min:5, max:20}).withMessage(lengthErr),
+    .isLength({min:5, max:50}).withMessage(lengthErr),
 
     body('product_price')
     .trim()
@@ -27,7 +27,7 @@ const validateUpdateProduct = [
     .optional({values: 'falsy'})
     .trim()
     .isAlpha('en-US', { ignore: ' ' }).withMessage(alphaErr)
-    .isLength({min:5, max:20}).withMessage(lengthErr),
+    .isLength({min:5, max:50}).withMessage(lengthErr),
 
     body('product_price')
     .optional({values: 'falsy'})

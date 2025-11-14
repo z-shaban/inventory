@@ -3,14 +3,14 @@ const db = require('../db/queries')
 const {body, validationResult, matchedData} = require('express-validator')
 
 const alphaErr = 'category name should only contain letters'
-const lengthErr = 'category name should be between 5 and 20 characters'
+const lengthErr = 'category name should be between 5 and 50 characters'
 
 
 const validateCreateCategory = [
      body('category_name')
      .trim()
      .isAlpha('en-US', { ignore: ' ' }).withMessage(alphaErr)
-     .isLength({ min: 5, max: 10 }).withMessage(lengthErr),
+     .isLength({ min: 5, max: 50 }).withMessage(lengthErr),
 
      body('category_image').custom((value, {req})=>{
         const imageErr = 'An image file is required'
@@ -32,7 +32,7 @@ const validateUpdateCategory = [
      .optional({ values: "falsy" })
      .trim()
      .isAlpha('en-US', { ignore: ' ' }).withMessage(alphaErr)
-     .isLength({ min: 5, max: 20 }).withMessage(lengthErr),
+     .isLength({ min: 5, max: 50 }).withMessage(lengthErr),
 
      body('category_image') 
     .custom((value, {req})=>{
