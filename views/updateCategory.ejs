@@ -4,17 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/output.css">
 </head>
-<body>
-    <form action="/categories/<%= category.id %>/updateCategory" method="post" enctype="multipart/form-data">
-          <label for="category_name">Name:</label>
-          <input type="text" id="category_name" name="category_name" placeholder="Enter new name" >
+<body class="flex flex-col min-h-screen">
+    <div><%- include('partials/header') %></div>
+   
+    <div id="main" class="flex flex-col flex-1 justify-center items-center overflow-y-auto bg-black">
+        <p class="text-yellow-500 text-4xl font-extrabold mb-4">UPDATE THE CATEGORY</p>
+         <form class="flex flex-col border-4 border-yellow-500 p-4" action="/categories/<%= category.id %>/updateCategory" method="post" enctype="multipart/form-data">
+          <label class="text-yellow-500 text-lg" for="category_name">Name:</label>
+          <input class="bg-black border-2 rounded border-yellow-500 text-white mb-4" type="text" id="category_name" name="category_name" placeholder="Enter new name" >
 
-         <label for="category_image">Upload New Image:</label>
-         <input type="file" name="category_image" >
+         <label class="text-yellow-500 text-lg" for="category_image">Upload New Image:</label>
+         <input class="text-white mb-4" type="file" name="category_image" >
 
-         <button type="submit">UPDATE</button>
+         <button class="primary-btn" type="submit">UPDATE</button>
          <%- include('partials/errors.ejs') %>
     </form>
+    </div>
+   
+    <div><%- include('partials/footer') %></div>
 </body>
 </html>
